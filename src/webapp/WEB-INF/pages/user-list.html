@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+    body {
+        width: 100%;
+        height: 100%;
+        margin: 0px;
+    }
+
+    h1 {
+        font-size: 150px;
+        display: flex;
+        justify-content: center;
+        background-color: rgb(87, 212, 145);
+        margin: 0px 0px 10px 0px;
+        border: 1px solid black;
+    }
+
+    span {
+        display: inline-block;
+        opacity: 0;
+        filter: blur(4px);
+    }
+
+    span:nth-child(1) {
+        animation: fade-in 0.8s 0.1s forwards cubic-bezier(0.11, 0, 0.5, 0);
+    }
+
+    @keyframes fade-in {
+        100% {
+            opacity: 1;
+            filter: blur(0);
+        }
+    }
+
+    /* /Заголовок */
+    /* Таблица */
+
+    .usertable {
+        display: flex;
+        justify-content: center;
+    }
+
+    .usertable table {
+        font-size: 24px;
+        border: 1px solid black;
+    }
+
+    .usertable table th {
+        border: 1px solid black;
+        text-align: center;
+        width: 200px;
+    }
+
+    .usertable table .ID {
+        width: 100px;
+    }
+
+    .usertable table .Age {
+        width: 100px;
+    }
+
+    .usertable table tr {
+        border: 1px solid black;
+    }
+
+    .usertable table td {
+        border: 1px solid black;
+        width: 100px;
+        text-align: center;
+    }
+
+    .usertable table .Edit {
+        background: rgb(195, 212, 87);
+        font-weight: bold;
+    }
+
+    .usertable table .Delete {
+        background: rgb(212, 87, 87);
+        font-weight: bold;
+    }
+
+    /* /Таблица */
+
+    /* Кнопка добавления пользователя*/
+    .CreateUser {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0px 0px 0px;
+    }
+
+    .CreateUser button {
+        font-size: 48px;
+        padding: 5px;
+        color: #fff;
+        background: #2799d6;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px 0 rgba(39, 153, 214, 0.35);
+        cursor: pointer;
+    }
+
+    .CreateUser button:hover {
+        background: #7cc1e6;
+    }
+
+    .CreateUser button:active {
+        background: #207fb2;
+        box-shadow: none;
+    }
+
+</style>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Users Table</title>
+  </head>
+
+  <body>
+    <h1>
+      <span>User table</span>
+    </h1>
+    <div class="usertable">
+      <table>
+        <thead>
+        <tr>
+          <th class="ID">ID</th>
+          <th class="Name">Name</th>
+          <th class="LastName">LastName</th>
+          <th class="Age">Age</th>
+          <th colspan="2">Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+          <td th:text="${user.id}"></td>
+          <td th:text="${user.name}"></td>
+          <td th:text="${user.lastName}"></td>
+          <td th:text="${user.age}"></td>
+          <td class="Edit">
+            <a th:href="@{/user-update/{id}(id=${user.id})}">Edit</a>
+          </td>
+          <td class="Delete">
+            <a th:href="@{/user-delete/{id}(id=${user.id})}">Delete</a>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="CreateUser">
+      <button onclick="document.location='user-create'">
+        Create User
+      </button>
+    </div>
+  </body>
+</html>
