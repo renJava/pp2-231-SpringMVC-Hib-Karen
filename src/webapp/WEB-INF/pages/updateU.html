@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:form="">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" lang="ru">
 
 <head>
     <meta charset="UTF-8">
-    <title>Create User</title>
+    <title>Update User</title>
 </head>
 
 <body>
-<form action="#" th:action="@{/user-create}" th:object="${user}" method="post">
+<form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
     <div>
+        <input name="id" type="hidden" id="id" readonly="readonly" th:value="${user.id}"/>
+
+
         <label for="name">Name</label>
         <input type="text" id="name" th:field="*{name}"/>
         <div style="color:red" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</div>
 
-
-        <br/>
+        <br>
 
         <label for="lastName">LastName</label>
         <input type="text" id="lastName" th:field="*{lastName}"/>
         <div style="color:red" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">Name Error</div>
+
 
         <br>
 
@@ -28,8 +31,9 @@
 
         <br>
 
-        <input type="submit" value="Create User"/>
+        <input type="submit" value="Update User"/>
     </div>
 </form>
 </body>
+
 </html>

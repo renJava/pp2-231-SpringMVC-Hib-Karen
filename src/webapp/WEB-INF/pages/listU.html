@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <style>
     body {
-        width: 100%;
-        height: 100%;
-        margin: 0px;
+      font-family: Arial;
+      width: 100%;
+      height: 100%;
+      margin: 0px;
     }
 
     h1 {
-        font-size: 150px;
-        display: flex;
-        justify-content: center;
-        background-color: rgb(87, 212, 145);
-        margin: 0px 0px 10px 0px;
-        border: 1px solid black;
+      font-size: 5em;
+      display: flex;
+      justify-content: center;
+      background-color: rgb(0, 191, 255);
+      margin: 0px 0px 10px 0px;
+      border: 1px solid black;
     }
 
     span {
@@ -42,8 +43,8 @@
     }
 
     .usertable table {
-        font-size: 24px;
-        border: 1px solid black;
+      font-size: 1.5em;
+      border: 1px solid black;
     }
 
     .usertable table th {
@@ -71,12 +72,12 @@
     }
 
     .usertable table .Edit {
-        background: rgb(195, 212, 87);
+        background: rgb(255, 255, 224);
         font-weight: bold;
     }
 
     .usertable table .Delete {
-        background: rgb(212, 87, 87);
+        background: rgb(255, 218, 185);
         font-weight: bold;
     }
 
@@ -86,14 +87,14 @@
     .CreateUser {
         display: flex;
         justify-content: center;
-        margin: 20px 0px 0px 0px;
+        margin: 20px 0 0 0;
     }
 
     .CreateUser button {
         font-size: 48px;
         padding: 5px;
         color: #fff;
-        background: #2799d6;
+        background: #00bfff;
         border-radius: 8px;
         box-shadow: 0 4px 8px 0 rgba(39, 153, 214, 0.35);
         cursor: pointer;
@@ -116,7 +117,7 @@
 
   <body>
     <h1>
-      <span>User table</span>
+      <span>User List</span>
     </h1>
     <div class="usertable">
       <table>
@@ -147,7 +148,7 @@
     </div>
     <div class="CreateUser">
       <button onclick="document.location='user-create'">
-        Create User
+        New User
       </button>
     </div>
   </body>
