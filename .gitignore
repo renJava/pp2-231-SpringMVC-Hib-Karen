@@ -5,7 +5,7 @@
 ### IntelliJ IDEA & other ###
 /.idea
 **/target
-#.gitignore
+.gitignore
 
 
 #modules.xml
