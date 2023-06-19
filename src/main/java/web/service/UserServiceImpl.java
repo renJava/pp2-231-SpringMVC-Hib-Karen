@@ -26,9 +26,9 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User updateUser(User user) {
+    public void updateUser(User user) {
 
-        return userDao.updateUser(user);
+        userDao.updateUser(user);
     }
 
     @Transactional
