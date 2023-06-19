@@ -26,20 +26,20 @@ public class UserController {
     @GetMapping("/")
     public String printUsers(Model model) {
         model.addAttribute("users", userService.getAllUsers());
-        return "user-list";
+        return "listU";
     }
 
     @GetMapping("/user-create")
     public String createUserForm(Model model) {
         model.addAttribute("user", new User());
-        return "user-create";
+        return "createU";
     }
 
     @PostMapping("/user-create")
     public String addUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "user-create";
+            return "createU";
         }
 
         userService.add(user);
@@ -55,17 +55,18 @@ public class UserController {
     @GetMapping("/user-update/{id}")
     public String updateUserForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.findById(id));
-        return "user-update";
+        return "updateU";
     }
 
     @PostMapping("/user-update")
     public String updateUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {
-            return "user-update";
+            return "updateU";
         }
 
         userService.updateUser(user);
         return "redirect:/";
     }
+
 }
