@@ -2,7 +2,7 @@
 <html lang="ru">
 <style>
     body {
-      font-family: Arial;
+      font-family: Arial,serif;
       width: 100%;
       height: 100%;
       /*margin: 0px;*/
@@ -143,10 +143,17 @@
           <td th:text="${user.lastName}"></td>
           <td th:text="${user.age}"></td>
           <td class="Edit">
-            <a th:href="@{/user-update/{id}(id=${user.id})}">Edit</a>
+
+            <form th:action="@{/user-update/{id}(id=${user.id})}" th:method="post">
+              <input type="hidden" name="_method" value="patch">
+              <button type="submit">Update</button>
+            </form>
           </td>
           <td class="Delete">
-            <a th:href="@{/user-delete/{id}(id=${user.id})}">Delete</a>
+            <form th:action="@{/user-delete/{id}(id=${user.id})}" th:method="post">
+              <input type="hidden" name="_method" value="delete">
+              <button type="submit">Delete</button>
+            </form>
           </td>
         </tr>
         </tbody>

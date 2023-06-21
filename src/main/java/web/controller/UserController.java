@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import web.entity.User;
 import web.service.UserService;
 
@@ -46,19 +43,19 @@ public class UserController {
         return "redirect:/";
     }
 
-    @GetMapping("/user-delete/{id}")
+    @DeleteMapping("/user-delete/{id}")
     public String deleteUserFromTable(@PathVariable("id") Long id) {
         userService.deleteUserFromTable(id);
         return "redirect:/";
     }
 
-    @GetMapping("/user-update/{id}")
+    @PatchMapping("/user-update/{id}")
     public String updateUserForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("user", userService.findById(id));
         return "updateU";
     }
 
-    @PostMapping("/user-update")
+    @PatchMapping("/user-update")
     public String updateUser(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
 
         if (bindingResult.hasErrors()) {

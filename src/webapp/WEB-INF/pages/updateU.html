@@ -7,7 +7,7 @@
 </head>
 
 <body>
-<form action="#" th:action="@{/user-update}" th:object="${user}" method="post">
+<form action="#" th:action="@{/user-update}" th:object="${user}" th:method="PATCH">
     <div>
         <input name="id" type="hidden" id="id" readonly="readonly" th:value="${user.id}"/>
 
