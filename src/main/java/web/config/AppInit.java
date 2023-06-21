@@ -31,7 +31,8 @@ public class AppInit extends AbstractAnnotationConfigDispatcherServletInitialize
     }
 
 // Пытаюсь в классе контроллера над методами обновления и удаления поставить верные аннотация, чтобы они соответствовали
-// http запросам put и delete
+// http запросам put и delete.
+// Фильтр для обработки http запросов String:
     @Override
     public void onStartup(ServletContext aServletContext) throws ServletException {
         super.onStartup(aServletContext);

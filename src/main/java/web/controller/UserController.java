@@ -13,6 +13,7 @@ import javax.validation.Valid;
 @Controller
 public class UserController {
 
+    static final String REDIRECT_ROOT = "redirect:/";
     private final UserService userService;
 
     @Autowired
@@ -40,13 +41,13 @@ public class UserController {
         }
 
         userService.add(user);
-        return "redirect:/";
+        return REDIRECT_ROOT;
     }
 
     @DeleteMapping("/user-delete/{id}")
     public String deleteUserFromTable(@PathVariable("id") Long id) {
         userService.deleteUserFromTable(id);
-        return "redirect:/";
+        return REDIRECT_ROOT;
     }
 
     @PatchMapping("/user-update/{id}")
@@ -63,7 +64,7 @@ public class UserController {
         }
 
         userService.updateUser(user);
-        return "redirect:/";
+        return REDIRECT_ROOT;
     }
 
 }
