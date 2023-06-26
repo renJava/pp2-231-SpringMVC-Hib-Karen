@@ -21,16 +21,16 @@ public class UserController {
         this.userService = userService;
     }
 
-    @GetMapping("/")
-    public String printUsers(Model model) {
-        model.addAttribute("users", userService.getAllUsers());
-        return "listU";
-    }
-
     @GetMapping("/user-create")
     public String createUserForm(Model model) {
         model.addAttribute("user", new User());
         return "createU";
+    }
+
+    @GetMapping("/")
+    public String printUsers(Model model) {
+        model.addAttribute("users", userService.getAllUsers());
+        return "listU";
     }
 
     @PostMapping("/user-create")
